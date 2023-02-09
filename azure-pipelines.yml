@@ -37,3 +37,11 @@ steps:
     PathtoPublish: '$(Build.ArtifactStagingDirectory)'
     ArtifactName: 'drop'
     publishLocation: 'Container'
+
+- task: AzureRmWebAppDeployment@4
+  inputs:
+    ConnectionType: 'AzureRM'
+    azureSubscription: 'sharath-pay-as-you-go (848e003e-1713-401d-b000-8b4438b54e0a)'
+    appType: 'webAppLinux'
+    WebAppName: 'WeatherAPP01'
+    packageForLinux: '$(System.DefaultWorkingDirectory)/**/*.drop'
